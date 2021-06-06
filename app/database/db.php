@@ -2,6 +2,16 @@
 
 require('connect.php');
 
+function executeQuery($sql, $data){
+    global $conn;
+    $stmt = $conn->prepare($sql);
+    $values = array_values($data);
+    $types = str_repeat('s', count($values));
+    $stmt->bind_param($types, ...$values);
+    $stmt->execute();
+    return $stmt;
+}
+
 function printD($value) // development use needs to be deleted for production
 {
     echo "<pre>", print_r($value, true), "</pre>";
@@ -31,16 +41,39 @@ function selectAll($table, $conditions = []){
         }
         /**In order to prevent from sql inject where the user might type in sql codes which will be directly executed code, in order to prevent that from happening we will be using bind parameters. */
 
-        $stmt = $conn->prepare($sql);
-        
-
+       
+        $stmt = executeQuery($sql, $conditions);
         //$stmt = executeQuery($sql, $conditions);
-        //$records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
         return $records;
     }
 }
 
-$hello = selectAll('users');
 
-printD($hello);
+function selectOne($table, $conditions)//second parameter is compulsory
+{ 
+    global $conn;
+
+    $sql = "SELECT * FROM $table"; //for sql query and php variable to work together we need to use "";
+  
+        
+    $i = 0;
+    foreach ($conditions as $key => $value) {
+    
+        if ($i === 0) {
+            $sql = $sql . " WHERE $key= ?";
+        } else{
+            $sql = $sql . " AND $key= ?";
+        }
+        $i++;
+    } 
+
+    $sql = $sql . " LIMIT 1";
+
+    $stmt = executeQuery($sql, $conditions);
+    $records = $stmt->get_result()->fetch_assoc(); 
+
+    return $records;   
+
+}
