@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require('connect.php');
 
 function executeQuery($sql, $data){
@@ -70,7 +70,7 @@ function selectOne($table, $conditions)//second parameter is compulsory
     } 
 
     $sql = $sql . " LIMIT 1";
-
+    print
     $stmt = executeQuery($sql, $conditions);
     $records = $stmt->get_result()->fetch_assoc(); 
 

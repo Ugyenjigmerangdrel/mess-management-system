@@ -1,3 +1,8 @@
+<?php
+
+include('C:/xampp/htdocs/mess-management-system/app/controllers/users.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,11 +55,11 @@
                     <input class="text-white form-control bg-dark login-input-text" type="text" name="username">
                 </div>
                 <div class="form-group">
-                    <label class="text-white" for="username">Password</label>
-                    <input class="text-white form-control bg-dark login-input-text" type="text" name="password">
+                    <label class="text-white" for="password">Password</label>
+                    <input class="text-white form-control bg-dark login-input-text" type="password" name="password">
                 </div>
                 <div class="form-group ">
-                <a href="login.php" class="form-control btn border border-light text-light explore-butt login-butt" name="login">Login</a>
+                <button type="submit" class="form-control btn border border-light text-light explore-butt login-butt" name="login">Login</button>
                 </div>
             </div>
             <br>
