@@ -1,6 +1,7 @@
 <?php 
 include('path.php');
-include($ROOTPATH . '/app/database/db.php');
+
+include($ROOTPATH . '/app/controllers/item_list.php');
 
 $user_role = '';
 if ($_SESSION['user_role'] === 1){
@@ -62,7 +63,7 @@ if ($_SESSION['user_role'] === 2){
     <div class="container-fluid">
     <div class="row">
     <div class="col-lg-4 border-right border-white">
-      <form action="login.php" method="post">
+      <form action="item_list.php" method="post">
           <div class="col-lg-12 col-md-12 col-sm-12  login-container">
               <div class="form-group">
                   <label class="text-white" for="username">Item Name</label>
@@ -111,23 +112,18 @@ if ($_SESSION['user_role'] === 2){
         </tr>
       </thead>
       <tbody>
+      <?php foreach ($item as $key => $iti): ?>
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
+          <th scope="row"><?php echo $key + 1 ?></th>
+          <td><?php echo $iti['item_name'];?></td>
+          <td><?php echo $iti['quantity_unit'];?></td>
+          <td><?php echo $iti['description'];?></td>
+          <td><?php echo $iti['item_rate'];?></td>
           <td><button class="btn bg-dark border border-light text-light explore-butt">Update</button><button class="btn bg-danger border border-light text-light explore-butt ml-2">Delete</button></td>
         </tr>
-        
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-          <td><button class="btn bg-dark border border-light text-light explore-butt">Update</button><button class="btn bg-danger border border-light text-light explore-butt ml-2">Delete</button></td>
-        </tr>
+
+      <?php endforeach ?>
+       
       </tbody>
     </table>
       </div>
