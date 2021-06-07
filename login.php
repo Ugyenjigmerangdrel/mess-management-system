@@ -1,6 +1,7 @@
 <?php
+include('path.php');
 
-include('C:/xampp/htdocs/mess-management-system/app/controllers/users.php');
+include($ROOTPATH.'/app/controllers/users.php');
 
 ?>
 <!DOCTYPE html>
