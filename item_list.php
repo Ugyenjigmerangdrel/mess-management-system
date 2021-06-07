@@ -61,12 +61,10 @@ if ($_SESSION['user_role'] === 2){
     <section>
         <div class="container welcome-container text-center">
             <br>
-            <h2 class="text-white">You are <?php echo $user_role; ?></h2>
-            
-            
+            <a href="login.php" class="btn border border-light text-light explore-butt">Add Item</a>
             <br>
-            <a href="item_list.php" class="btn border border-light text-light explore-butt">Item-List</a>
-            <br>
+
+            
         </div>
     </section>
 

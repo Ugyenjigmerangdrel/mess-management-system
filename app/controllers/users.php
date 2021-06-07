@@ -24,11 +24,6 @@ if (isset($_POST['login'])) {
     //printD($_POST);
     $user = selectOne($table, ['username' => $_POST['username']]);
 
-    if ($user['id'] === 1){
-        //login and redirect
-        loginUser($user);
-    } else{
-        echo "Not success";
-    }
+    loginUser($user);
 } 
 
