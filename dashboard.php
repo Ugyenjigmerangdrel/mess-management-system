@@ -2,6 +2,14 @@
 include('path.php');
 include($ROOTPATH . '/app/database/db.php');
 
+$user_role = '';
+if ($_SESSION['user_role'] === 1){
+    $user_role = 'Superadmin';
+} 
+
+if ($_SESSION['user_role'] === 2){
+    $user_role = 'Admin';
+}
 ?>
 
 <!DOCTYPE html>
@@ -51,19 +59,13 @@ include($ROOTPATH . '/app/database/db.php');
     </header>
 
     <section>
-        <div class="container introduction">
-
-        </div>
-    </section>
-
-    <section>
         <div class="container welcome-container text-center">
             <br>
-            <h2 class="text-white">Welcome To Project P X K </h2>
-            <h5 class="text-light-grey">Mess management system designed for change </h5>
+            <h2 class="text-white">You are <?php echo $user_role; ?></h2>
+            
             
             <br>
-            <a href="login.php" class="btn border border-light text-light explore-butt">Login</a>
+            <a href="login.php" class="btn border border-light text-light explore-butt">Item-List</a>
             <br>
         </div>
     </section>
