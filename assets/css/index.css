@@ -91,3 +91,11 @@ body{
 .login-butt{
     background: black;
 }
+
+/* Item Table List*/
+.item-table-border{
+    border: rgb(255, 255, 255) 1px solid;
+}
+.item-table-bg{
+    background-color: rgb(0, 145, 0);
+}

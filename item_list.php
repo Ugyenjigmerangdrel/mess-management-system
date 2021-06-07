@@ -23,7 +23,7 @@ if ($_SESSION['user_role'] === 2){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/index.css">
   </head>
   <body>
     <header class="header_area">
@@ -57,22 +57,81 @@ if ($_SESSION['user_role'] === 2){
               </nav>
         </div>
     </header>
-
-    <section>
-        <div class="container welcome-container text-center">
-            <br>
-            <a href="login.php" class="btn border border-light text-light explore-butt">Add Item</a>
-            <br>
-
-            
-        </div>
-    </section>
-
+    <br>
     <section>
     <div class="container-fluid">
-        <div class="row">
+    <div class="row">
+    <div class="col-lg-4 border-right border-white">
+      <form action="login.php" method="post">
+          <div class="col-lg-12 col-md-12 col-sm-12  login-container">
+              <div class="form-group">
+                  <label class="text-white" for="username">Item Name</label>
+                  <input class="text-white form-control bg-dark login-input-text" type="text" name="item_name">
+                  
+              </div>
+              <div class="form-group">
+                  <label class="text-white" for="password">Quantity_Unit</label>
+                  <input class="text-white form-control bg-dark login-input-text" type="text" name="quantity_unit">
+  
+              </div>
+              <div class="form-group">
+                  <label class="text-white" for="text">Description</label>
+                  <input class="text-white form-control bg-dark login-input-text" type="text" name="description">
+  
+              </div>
+              <div class="form-group">
+                  <label class="text-white" for="text">Item Rate</label>
+                  <input class="text-white form-control bg-dark login-input-text" type="text" name="item_rate">
+  
+              </div>
+              <div class="form-group ">
+              <button type="submit" class="form-control btn border border-light text-light explore-butt login-butt" name="submit">Submit</button>
+              </div>
+          </div>
+          <br>
+          
+
+
+        </form>
+    
+    </div>
+      <div class="col-lg-8">
+      <br>
+      <h5 class="text-white">Item Listing</h5>
+      <br>
+      <table class="table text-white item-table-border">
+      <thead class="item-table-bg">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Item Name</th>
+          <th scope="col">Quantity_Unit</th>
+          <th scope="col">Description</th>
+          <th>Item Rate</th>
+          <th>Changes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>@mdo</td>
+          <td><button class="btn bg-dark border border-light text-light explore-butt">Update</button><button class="btn bg-danger border border-light text-light explore-butt ml-2">Delete</button></td>
+        </tr>
         
-        </div>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>@mdo</td>
+          <td><button class="btn bg-dark border border-light text-light explore-butt">Update</button><button class="btn bg-danger border border-light text-light explore-butt ml-2">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+      </div>
+    </div>
     </div>
     </section>
 
