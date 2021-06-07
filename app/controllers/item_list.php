@@ -8,3 +8,5 @@ $item_name = "";
 $quantity_unit = "";
 $description = "";
 $item_rate = "";
+
+if ($_POST['submit'])
