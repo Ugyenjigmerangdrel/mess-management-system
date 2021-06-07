@@ -54,10 +54,13 @@ include($ROOTPATH.'/app/controllers/users.php');
                 <div class="form-group">
                     <label class="text-white" for="username">Username</label>
                     <input class="text-white form-control bg-dark login-input-text" type="text" name="username">
+                    
+                    <h6 class="text-warning border-bottom border-warning p-1">Your Username Couldn't be Found</h6>
                 </div>
                 <div class="form-group">
                     <label class="text-white" for="password">Password</label>
                     <input class="text-white form-control bg-dark login-input-text" type="password" name="password">
+                    <h6 class="text-warning border-bottom border-warning p-1">Your Password Is Incorrect</h6>
                 </div>
                 <div class="form-group ">
                 <button type="submit" class="form-control btn border border-light text-light explore-butt login-butt" name="login">Login</button>
