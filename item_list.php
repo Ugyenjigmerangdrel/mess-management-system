@@ -35,7 +35,7 @@ $item = selectAll('item_table');
         <div class="main_menu">
             <nav class="navbar navbar-expand-lg navbar-dark navbar-background">
                 <a class="navbar-brand" href="#">
-                    <img src="/assets/images/logo.svg" width="50" height="50" alt="">
+                    <img src="https://academy.bt/tranewsite/wp-content/uploads/2020/09/download-4-132x113.png" width="100" alt="">
                   </a>
                 <button class="navbar-toggler toogle-butt" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="fa fa-bars"></span>
