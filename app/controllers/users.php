@@ -16,7 +16,7 @@ function loginUser($user){
     $_SESSION['user_role'] = $user['user_role'];
     $_SESSION['message'] = 'Sucessfully Logged In';
     $_SESSION['type'] = 'success';
-    header('location:'. $BASE_URL. '/mess-management-system/dashboard.php');
+    header('location:'. $BASE_URL. '/mess-management-system/item_list.php');
     exit();
 }
 

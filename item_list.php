@@ -11,7 +11,11 @@ if ($_SESSION['user_role'] === 1){
 if ($_SESSION['user_role'] === 2){
     $user_role = 'Admin';
 }
+
+$item = selectAll('item_table');
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,29 +69,34 @@ if ($_SESSION['user_role'] === 2){
     <div class="col-lg-4 border-right border-white">
       <form action="item_list.php" method="post">
           <div class="col-lg-12 col-md-12 col-sm-12  login-container">
+           <?php foreach ($error as $err): ?>
+                <h6 class="text-warning border-bottom border-warning p-1" ><? echo $err ?></h6>
+              <? endforeach; ?>
               <div class="form-group">
                   <label class="text-white" for="username">Item Name</label>
-                  <input class="text-white form-control bg-dark login-input-text" type="text" name="item_name">
+                  <input class="text-white form-control bg-dark login-input-text" type="text" name="item_name" value="<?php echo $item_name;?>">
+                  
                   
               </div>
               <div class="form-group">
                   <label class="text-white" for="password">Quantity_Unit</label>
-                  <input class="text-white form-control bg-dark login-input-text" type="text" name="quantity_unit">
+                  <input class="text-white form-control bg-dark login-input-text" type="text" name="quantity_unit" value="<?php echo $quantity_unit;?>">
   
               </div>
               <div class="form-group">
                   <label class="text-white" for="text">Description</label>
-                  <input class="text-white form-control bg-dark login-input-text" type="text" name="description">
+                  <input class="text-white form-control bg-dark login-input-text" type="text" name="description" value="<?php echo $description;?>">
   
               </div>
               <div class="form-group">
                   <label class="text-white" for="text">Item Rate</label>
-                  <input class="text-white form-control bg-dark login-input-text" type="text" name="item_rate">
+                  <input class="text-white form-control bg-dark login-input-text" type="text" name="item_rate" value="<?php echo $item_rate;?>">
   
               </div>
               <div class="form-group ">
               <button type="submit" class="form-control btn border border-light text-light explore-butt login-butt" name="submit">Submit</button>
               </div>
+
           </div>
           <br>
           
@@ -96,7 +105,7 @@ if ($_SESSION['user_role'] === 2){
         </form>
     
     </div>
-      <div class="col-lg-8">
+      <div class="col-lg-8 item-container" style="height:80vh; overflow-y: scroll;">
       <br>
       <h5 class="text-white">Item Listing</h5>
       <br>
