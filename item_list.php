@@ -20,47 +20,11 @@ $item = selectAll('item_table');
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/index.css">
+  <?php require($ROOTPATH.'/app/links/header.php') ?>
   </head>
   <body>
     <header class="header_area">
-        <div class="main_menu">
-            <nav class="navbar navbar-expand-lg navbar-dark navbar-background">
-                <a class="navbar-brand" href="#">
-                    <img src="https://academy.bt/tranewsite/wp-content/uploads/2020/09/download-4-132x113.png" width="100" alt="">
-                  </a>
-                <button class="navbar-toggler toogle-butt" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="fa fa-bars"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="mr-auto "></div>
-                  <ul class="navbar-nav nav-bar-links">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="index.html">About<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="learning-journey.html">Mine</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="contact.html"><?php echo $_SESSION['username']; ?></a>
-                    </li>
-
-                  </ul>
-                </div>
-              </nav>
-        </div>
+    <?php require($ROOTPATH.'/app/links/nav.php') ?>
     </header>
     <br>
     <section>
@@ -128,7 +92,7 @@ $item = selectAll('item_table');
           <td><?php echo $iti['quantity_unit'];?></td>
           <td><?php echo $iti['description'];?></td>
           <td><?php echo $iti['item_rate'];?></td>
-          <td><button class="btn bg-dark border border-light text-light explore-butt">Update</button><button class="btn bg-danger border border-light text-light explore-butt ml-2">Delete</button></td>
+          <td><button class="btn bg-dark border border-light text-light explore-butt mr-2 ">Update</button><button class="btn bg-danger border border-light text-light explore-butt ">Delete</button></td>
         </tr>
 
       <?php endforeach ?>

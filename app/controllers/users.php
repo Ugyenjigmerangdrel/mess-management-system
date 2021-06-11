@@ -1,6 +1,7 @@
 <?php
 
 include($ROOTPATH.'/app/database/db.php');
+include($ROOTPATH.'/app/helpers/validateUser.php');
 
 $errors = array();
 
@@ -16,14 +17,25 @@ function loginUser($user){
     $_SESSION['user_role'] = $user['user_role'];
     $_SESSION['message'] = 'Sucessfully Logged In';
     $_SESSION['type'] = 'success';
-    header('location:'. $BASE_URL. '/mess-management-system/item_list.php');
+    header('location:'. $BASE_URL. '/mess-management-system/dashboard.php');
     exit();
 }
 
 if (isset($_POST['login'])) {
     //printD($_POST);
-    $user = selectOne($table, ['username' => $_POST['username']]);
+    $errors = validateLogin($_POST);
 
-    loginUser($user);
+    if (count($errors) === 0){
+        $user = selectOne($table, ['username' => $_POST['username']]);
+
+        if ($user && password_verify($_POST['password'], $user['password'])){
+            //login and redirect
+            loginUser($user);
+        } else{
+            array_push($errors, 'Wrong Credientials');
+            $username = $_POST['username'];
+            $password = '';
+        }
+    }
 } 
 

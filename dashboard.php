@@ -15,58 +15,70 @@ if ($_SESSION['user_role'] === 2){
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+   <?php require($ROOTPATH.'/app/links/header.php') ?>
   </head>
   <body>
     <header class="header_area">
-        <div class="main_menu">
-            <nav class="navbar navbar-expand-lg navbar-dark navbar-background">
-                <a class="navbar-brand" href="#">
-                    <img src="/assets/images/logo.svg" width="50" height="50" alt="">
-                  </a>
-                <button class="navbar-toggler toogle-butt" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="fa fa-bars"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="mr-auto "></div>
-                  <ul class="navbar-nav nav-bar-links">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="index.html">About<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="learning-journey.html">Mine</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="contact.html"><?php echo $_SESSION['username']; ?></a>
-                    </li>
-
-                  </ul>
-                </div>
-              </nav>
-        </div>
+    <?php require($ROOTPATH.'/app/links/nav.php') ?>
     </header>
 
     <section>
-        <div class="container welcome-container text-center">
-            <br>
-            <h2 class="text-white">You are <?php echo $user_role; ?></h2>
+        <div class="container-fluid ">
+            <div class="row mt-3">
+                <div class="col-lg-3 col-md-6 col-sm-12 text-white">
+                    <div class="row pt-2 pb-2 m-2 pl-2 pr-2" style="box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%); border-radius:5px; background:tomato;">
+                         
+                    <div class="col-lg-4 text-center">
+                        <i class="fa fa-envelope text-info mt-3" style="font-size: 2rem;"></i>
+                    </div>
+                    <div class="col-lg-8">
+                        <h5>Item Lists</h5>
+                        <p><b>260</b></p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-12 text-white">
+                    <div class="row pt-2 pb-2 m-2 pl-2 pr-2" style="box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%); border-radius:5px; background:teal;">
+                         
+                    <div class="col-lg-4 text-center">
+                        <i class="fa fa-folder text-white mt-3" style="font-size: 2rem;"></i>
+                    </div>
+                    <div class="col-lg-8">
+                        <h5>Item Lists</h5>
+                        <p><b>260</b></p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-12 text-white">
+                    <div class="row pt-2 pb-2 m-2 pl-2 pr-2" style="box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%); border-radius:5px; background:red;">
+                         
+                    <div class="col-lg-4 text-center">
+                        <i class="fa fa-home text-white mt-3" style="font-size: 2rem;"></i>
+                    </div>
+                    <div class="col-lg-8">
+                        <h5>Item Lists</h5>
+                        <p><b>260</b></p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-12 text-white">
+                    <div class="row pt-2 pb-2 m-2 pl-2 pr-2" style="box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%); border-radius:5px; background:purple;">
+                         
+                    <div class="col-lg-4 text-center">
+                        <i class="fa fa-pen text-white mt-3" style="font-size: 2rem;"></i>
+                    </div>
+                    <div class="col-lg-8">
+                        <h5>Item Lists</h5>
+                        <p><b>260</b></p>
+                    </div>
+                    </div>
+                </div>
+                
+            </div>
             
-            
-            <br>
-            <a href="item_list.php" class="btn border border-light text-light explore-butt">Item-List</a>
-            <br>
         </div>
     </section>
 
