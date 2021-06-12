@@ -34,8 +34,8 @@ $item = selectAll('item_table');
       <form action="item_list.php" method="post">
           <div class="col-lg-12 col-md-12 col-sm-12  login-container">
            <?php foreach ($error as $err): ?>
-                <h6 class="text-warning border-bottom border-warning p-1" ><? echo $err ?></h6>
-              <? endforeach; ?>
+                <h6 class="text-warning border-bottom border-warning p-1" ><?php echo $err ?></h6>
+              <?php endforeach; ?>
               <div class="form-group">
                   <label class="text-white" for="username">Item Name</label>
                   <input class="text-white form-control bg-dark login-input-text" type="text" name="item_name" value="<?php echo $item_name;?>">
@@ -92,7 +92,7 @@ $item = selectAll('item_table');
           <td><?php echo $iti['quantity_unit'];?></td>
           <td><?php echo $iti['description'];?></td>
           <td><?php echo $iti['item_rate'];?></td>
-          <td><button class="btn bg-dark border border-light text-light explore-butt mr-2 ">Update</button><button class="btn bg-danger border border-light text-light explore-butt ">Delete</button></td>
+          <td><button class="btn bg-dark border border-light text-light explore-butt mr-2 ">Update</button><a href="item_list.php?del_id=<?php echo $iti['id'] ?>" class="btn bg-danger border border-light text-light explore-butt ">Delete</a></td>
         </tr>
 
       <?php endforeach ?>

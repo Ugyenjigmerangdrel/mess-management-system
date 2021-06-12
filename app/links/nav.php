@@ -11,13 +11,13 @@
         <div class="mr-auto "></div>
             <ul class="navbar-nav nav-bar-links">
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">About<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.html">Dashboard<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="learning-journey.html">Mine</a>
+                <a class="nav-link" href="learning-journey.html">Account</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="contact.html">Messages</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="contact.html"><?php echo $_SESSION['username']; ?></a>

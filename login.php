@@ -19,8 +19,8 @@ include($ROOTPATH.'/app/controllers/users.php');
           <form action="login.php" method="post">
             <div class="col-lg-6 col-md-12 col-sm-12 m-auto p-4 login-container">
             <?php foreach ($errors as $err): ?>
-                <h6 class="text-warning border-bottom border-warning p-1" ><? echo $err ?></h6>
-              <? endforeach; ?>
+                <h6 class="text-warning border-bottom border-warning p-1" ><?php echo $err ?></h6>
+              <?php endforeach; ?>
                 <div class="form-group">
                     <label class="text-white" for="username">Username</label>
                     <input class="text-white form-control bg-dark login-input-text" type="text" name="username" value="<?php echo $username;?>">
@@ -43,11 +43,6 @@ include($ROOTPATH.'/app/controllers/users.php');
           </form>
       </div>
   </section>
-
-    
-
-    
-
 
 
     <!-- Optional JavaScript -->

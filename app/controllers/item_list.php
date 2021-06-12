@@ -14,6 +14,14 @@ $item_rate = "";
 
 $item = selectAll($table);
 
+if(isset($_GET['del_id'])){
+    $count = delete($table, $_GET['del_id']);
+
+    $_SESSION['message'] = "Post Successfully Deleted";
+    header('location:'. $BASE_URL. "/mess-management-system/item_list.php");
+}
+
+
 if (isset($_POST['submit'])){
     unset($_POST['submit']);
     //printD($_POST);
