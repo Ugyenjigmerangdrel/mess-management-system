@@ -1,18 +1,5 @@
-<!--
-=========================================================
-* * Black Dashboard - v1.0.1
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/black-dashboard
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
+  
 <?php 
 include('path.php');
 
@@ -20,7 +7,9 @@ $link .= $_SERVER['REQUEST_URI'];
       
 // Print the link
 //echo $link;
+
 include($ROOTPATH . '/app/controllers/receipt_table.php');
+
 $user_role = '';
 if ($_SESSION['user_role'] === 1){
     $user_role = 'Superadmin';
@@ -34,6 +23,7 @@ $item = selectAll('order_table', ['order_no' => $_GET['order_no']]);
 
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -108,10 +98,10 @@ $item = selectAll('order_table', ['order_no' => $_GET['order_no']]);
                     
                       <tr>
                         <th scope="row"><?php echo $key + 1 ?></th>
-                        <td><?php echo $iti['item_supplying'];?> <input type="hidden" name="item_received[]" value="<?php echo $iti['item_supplying'];?>"></td>
+                        <td><?php echo $iti['item_supplying'];?> <input type="hidden" name="item_received[]" value="<?php echo $iti['item_supplying'];?>"><input type="hidden" name="order_no" value="<?php echo $_GET['order_no'];?>"></td>
                         <td><input type="number" name="quantity_received[]" value="<?php echo $iti['quantity'];?>"?></td>
                         <td><?php echo $iti['rate'];?><input type="hidden" name="item_rate[]" value="<?php echo $iti['rate'];?>"></td>
-                        <td><?php echo $iti['supplier'];?><input type="hidden" name="item_supplier[]" value="<?php echo $iti['supplier'];?>"></td>
+                        <td><?php echo $iti['supplier'];?><input type="hidden" name="item_supplier[]" value="<?php echo $iti['supplier'];?>"> <input type="hidden" name="ordered_by[]" value="<?php echo $iti['ordered_by'];?>"></td>
 
                      
                         

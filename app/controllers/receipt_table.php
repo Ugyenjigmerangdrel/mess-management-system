@@ -4,32 +4,61 @@ include($ROOTPATH.'/app/database/db.php');
 
 
 $table = 'receipt_table';
-$item_id = "";
+$item_name = "";
 $quantity = "";
 $rate = "";
 $ordered_by  = "";
 $supplier = "";
 $order_no = "";
 
-
+$x = 'hello';
 $receipt = selectAll($table);
 
 
 if (isset($_POST['submit'])){
     unset($_POST['submit']);
-    printD($_POST);
-    $error = validateItem($_POST);
+    $order_no = $_POST['order_no'];
+    $item_name = $_POST['item_received'];
+    $quantity = $_POST['quantity_received'];
+    $rate = $_POST['item_rate'];
+    $ordered_by = $_POST['ordered_by'];
+    $comments = $_POST['comments'];
+    $supplier = $_POST['item_supplier'];
+    //printD($_POST);
+    //$error = validateItem($_POST);
 
-    if (empty($error)){
-        $item_id = create($table, $_POST);
-        //printD($item_id);
-        header('location:'.$BASE_URL.'/mess/item_list.php');
-    } else {
-        $item_name = $_POST['item_name'];
-        $quantity_unit = $_POST['quantity_unit'];
-        $description = $_POST['description'];
-        $item_rate = $_POST['item_rate'];
+    foreach($item_name as $index => $names){
+        global $conn;
+        echo 'hello';
+        /*$s_names = $names;
+        $s_quantity = $quantity[$index];
+        $s_rate = $rate[$index];
+        $s_supplier = $supplier[$index];
+        $s_ordered_by = $ordered_by[$index];
+        $s_comments = $comments;
+        $order_no = $order_no;
+        $amount = $s_quantity*$s_rate;
+
+
+        //Updating the receipt table
+        $query = "INSERT INTO receipt_table (item, quantity, rate, ordered_by, supplier, order_no, amount) VALUES ('$s_names','$s_quantity', '$s_rate', '$s_ordered_by', '$s_supplier', '$order_no', '$amount');";
+        
+        $query_run = mysqli_query($conn, $query);  */
     }
+
+    if($query_run && $u_run)
+    {
+        $_SESSION['status'] = "Multiple Data Inserted Successfully";
+        header("Location: received_table.php");
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['status'] = "Data Not Inserted";
+        header("Location: received_table.php");
+        exit(0);
+    }
+    
 
     
 
