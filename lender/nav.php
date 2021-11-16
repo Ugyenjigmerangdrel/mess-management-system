@@ -47,7 +47,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
                   <li class="text-dark">Signed In As:</li>
-                  <li class="text-light">ugyen</li>
+                  <li class="text-light"><?php echo $_SESSION['username'] ?></li>
                   <li class="dropdown-divider"></li>
                   <li class="nav-link"><a href="logout.php" class="nav-item dropdown-item">Log out</a></li>
                 </ul>

@@ -1,3 +1,9 @@
+<?php 
+include('path.php');
+
+include($ROOTPATH . '/app/controllers/users.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,16 +28,16 @@
         </div>
         
         <div class="card-body">
-        <form action="">
+        <form action="index.php" method="post">
           <div class="form-group">
             <label for="">Username</label>
-            <input type="text" class="form-control">
+            <input type="text" name="username" class="form-control">
           </div>
           <div class="form-group">
             <label for="">Password</label>
-            <input type="password" class="form-control">
+            <input type="password" name="password" class="form-control">
           </div>
-          <button type="submit" class="btn btn-fill btn-primary">Login</button>
+          <button type="login" name="login" class="btn btn-fill btn-primary">Login</button>
         </form>
         </div>
       </div>

@@ -24,31 +24,33 @@ if (isset($_POST['submit'])){
     $ordered_by = $_POST['ordered_by'];
     $comments = $_POST['comments'];
     $supplier = $_POST['item_supplier'];
-    //printD($_POST);
+    //printD(count($item_name));
     //$error = validateItem($_POST);
-
+    
     foreach($item_name as $index => $names){
         global $conn;
-        echo 'hello';
-        /*$s_names = $names;
+        
+        $s_names = $names;
         $s_quantity = $quantity[$index];
         $s_rate = $rate[$index];
         $s_supplier = $supplier[$index];
         $s_ordered_by = $ordered_by[$index];
         $s_comments = $comments;
         $order_no = $order_no;
-        $amount = $s_quantity*$s_rate;
+        $amount = $s_quantity[$index]*$s_rate[$index];
 
+        //printD($order_no);
 
         //Updating the receipt table
-        $query = "INSERT INTO receipt_table (item, quantity, rate, ordered_by, supplier, order_no, amount) VALUES ('$s_names','$s_quantity', '$s_rate', '$s_ordered_by', '$s_supplier', '$order_no', '$amount');";
+        $query = "INSERT INTO receipt_table (item, quantity, rate, ordered_by, supplier, order_no, amount, comments) VALUES ('$s_names','$s_quantity', '$s_rate', '$s_ordered_by', '$s_supplier', '$order_no', '$amount', '$s_comments');";
         
-        $query_run = mysqli_query($conn, $query);  */
+        //printD($query);
+        $query_run = mysqli_query($conn, $query);  
     }
 
-    if($query_run && $u_run)
+    if($query_run)
     {
-        $_SESSION['status'] = "Multiple Data Inserted Successfully";
+        $_SESSION['status'] = "Receipt Inserted Successfully";
         header("Location: received_table.php");
         exit(0);
     }

@@ -9,4 +9,4 @@ unset($_SESSION['message']);
 unset($_SESSION['type']);
 session_destroy();
 
-header('location:'. $BASE_URL .'/mess/index.php');
+header('location:'. $BASE_URL .'/mess-management-system/index.php');
