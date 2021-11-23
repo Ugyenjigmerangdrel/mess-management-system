@@ -82,6 +82,17 @@ function selectOrder($table, $conditions = []){
     }
 }
 
+function display_order($table, $col){
+    global $conn;
+
+    $sql = "SELECT * FROM $table ORDER BY $col DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+    return $records;
+}
+
 
 function selectOne($table, $conditions)//second parameter is compulsory
 { 
@@ -134,4 +145,18 @@ function delete($table, $id){
 
     $stmt = executeQuery($sql, ['id' => $id]);
     return $stmt->affected_rows;
+}
+
+
+function searchItem($term){
+    $match = '%' . $term . '%';
+    global $conn;
+    $sql = "SELECT * 
+            FROM item_table WHERE item_name LIKE ?
+            ";
+
+    $stmt = executeQuery($sql, ['item_name' => $match]);
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC); 
+
+    return $records;   
 }

@@ -17,7 +17,13 @@
 include('path.php');
 include($ROOTPATH . '/app/controllers/item_list.php');
 
-$item = selectAll('item_table');
+if (isset($_GET['item_search'])){
+  $item = searchItem($_GET['item_search']);
+
+} else{
+  $item = selectAll('item_table');
+}
+
 
  ?>
 
@@ -48,7 +54,18 @@ $item = selectAll('item_table');
               <div class="card-header">
                 <h4 class="card-title"> Item Listing</h4>
                 <p class="category"> Reference Table for item purchase.</p>
+                <div class="row">
                 <a href="add_item.php" class="btn btn-primary">Add Item</a>
+                </div>
+                
+              </div>
+              <div class="card-header col-lg-6">
+              <form action="item_list.php" method="GET">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control " placeholder="Search Item...."  name="item_search">
+              </div>
+               
+                </form>
               </div>
               <div class="card-body">
                 <div class="table-responsive">

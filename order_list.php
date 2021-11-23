@@ -27,7 +27,7 @@ if ($_SESSION['user_role'] === 2){
     $user_role = 'Admin';
 }
 
-$item = selectAll('order_update');
+$item = display_order('order_update', 'order_date');
 ?>
 
 <!DOCTYPE html>

@@ -44,17 +44,18 @@ if (isset($_POST['submit'])){
         //Updating the receipt table
         $query = "INSERT INTO receipt_table (item, quantity, rate, ordered_by, supplier, order_no, amount, comments) VALUES ('$s_names','$s_quantity', '$s_rate', '$s_ordered_by', '$s_supplier', '$order_no', '$amount', '$s_comments');";
         
-        $store_item = selectAll('store');
-        //printD($store_item['item_name']);
-        if ($store_item['item_name'] == $s_names){
+        $store_item = selectAll('store', ['item_name' => $s_names]);
+        //printD($store_item);
+        if (empty($store_item)){
+            $store_sql = "INSERT INTO store (item_name, quantity) VALUES ('$s_names','$s_quantity');";
+        } else{
+           
             $given_quantity = $store_item['quantity'];
             $new_quantity = $given_quantity + $s_quantity;
-            $store_sql = "UPDATE 'store' SET 'quantity' = '$new_quanity' WHERE 'item_name' = '$s_names'";
-        } else{
-            $store_sql = "INSERT INTO store (item_name, quantity) VALUES ('$s_names','$s_quantity');";
+            $store_sql = "UPDATE 'store' SET 'quantity' = '$new_quanity' WHERE 'item_name' = $s_names";
         }
         
-        //printD($query);
+        //printD($store_sql);
         $store_query = mysqli_query($conn, $store_sql);
         $query_run = mysqli_query($conn, $query);  
     }

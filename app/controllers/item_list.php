@@ -40,4 +40,9 @@ if (isset($_POST['submit'])){
 
     
 
+
+    if (isset($_GET['item_search'])){
+        $item = searchItem($_GET['item_search']);
+        printD($item);
+    }
 }
