@@ -43,7 +43,7 @@ if (isset($_POST['submit'])){
 
         //Updating the receipt table
         $query = "INSERT INTO receipt_table (item, quantity, rate, ordered_by, supplier, order_no, amount, comments) VALUES ('$s_names','$s_quantity', '$s_rate', '$s_ordered_by', '$s_supplier', '$order_no', '$amount', '$s_comments');";
-        
+        $query_run = mysqli_query($conn, $query);  
         $store_item = selectOne('store', ['item_name' => $s_names]);
         //printD($s_quantity);
         if (empty($store_item)){
@@ -54,12 +54,12 @@ if (isset($_POST['submit'])){
             $given_quantity = $store_item['quantity'];
             //printD($given_quantity);
             $new_quantity = $given_quantity + $s_quantity;
-            $store_sql = "UPDATE 'store' SET 'quantity' = '$new_quantity' WHERE 'item_name' = '$s_names'";
+            $store_sql = "UPDATE `store` SET `quantity` = $new_quantity WHERE `item_name` = '$s_names'";
         }
         
         //printD($store_sql);
         $store_query = mysqli_query($conn, $store_sql);
-        $query_run = mysqli_query($conn, $query);  
+        
     }
 
     if($query_run && $store_query)
