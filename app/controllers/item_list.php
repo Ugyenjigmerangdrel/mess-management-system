@@ -18,7 +18,7 @@ if(isset($_GET['del_id'])){
     $count = delete($table, $_GET['del_id']);
 
     $_SESSION['message'] = "Post Successfully Deleted";
-    header('location:'. $BASE_URL. "/mess-managment-system/item_list.php");
+    header('location:'. $BASE_URL. "/mess-management-system/item_list.php");
 }
 
 
@@ -30,7 +30,7 @@ if (isset($_POST['submit'])){
     if (empty($error)){
         $item_id = create($table, $_POST);
         //printD($item_id);
-        header('location:'.$BASE_URL.'/mess-managment-system/item_list.php');
+        header('location:'.$BASE_URL.'/mess-management-system/item_list.php');
     } else {
         $item_name = $_POST['item_name'];
         $quantity_unit = $_POST['quantity_unit'];

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 16, 2021 at 06:53 AM
+-- Generation Time: Nov 25, 2021 at 05:17 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -46,7 +46,10 @@ INSERT INTO `item_table` (`id`, `item_name`, `item_type`, `quantity_unit`, `desc
 (11, 'Rice', 'cereals', 'kg', 'Rajbhoj', 1300),
 (12, 'Oil', 'groceries', 'litre', 'Normal Consumption ', 50),
 (13, 'Biscuit', 'groceries', 'pkts', 'Good Day', 80),
-(14, 'Brinjal', 'vegetables', 'kg', 'Normal', 60);
+(15, 'Makhu', 'groceries', 'kg', 'Normal Consumption ', 1200),
+(16, 'Makhu', 'groceries', 'kg', 'Normal Consumption ', 1200),
+(17, 'Makhu', 'groceries', 'litre', 'Normal', 123),
+(19, 'Brinjal', 'vegetables', 'kg', 'Normal Consumption ', 40);
 
 -- --------------------------------------------------------
 
@@ -101,7 +104,10 @@ INSERT INTO `order_table` (`id`, `item_supplying`, `quantity`, `rate`, `ordered_
 (42, 'Biscuit', 12, 80, '', '2021-10-07 04:15:17', '', 'TRA_21|457', 960),
 (43, 'Oil', 123, 50, '', '2021-10-07 04:15:17', '', 'TRA_21|457', 6150),
 (44, 'Brinjal', 121, 60, '', '2021-10-07 04:15:17', '', 'TRA_21|457', 7260),
-(45, 'Cauliflower', 34, 60, '', '2021-10-07 04:15:17', 'Poney', 'TRA_21|457', 2040);
+(45, 'Cauliflower', 34, 60, '', '2021-10-07 04:15:17', 'Poney', 'TRA_21|457', 2040),
+(46, 'Oil', 123, 50, 'admin1', '2021-11-18 04:24:52', '', 'TRA_21|454', 6150),
+(47, 'Brinjal', 45, 60, 'admin1', '2021-11-18 04:24:52', '', 'TRA_21|454', 2700),
+(48, 'Cauliflower', 189, 60, 'admin1', '2021-11-25 04:01:20', 'Poney', 'TRA_21|423', 11340);
 
 -- --------------------------------------------------------
 
@@ -133,7 +139,9 @@ INSERT INTO `order_update` (`id`, `order_no`, `ordered_by`, `order_date`) VALUES
 (10, 'TRA_21|461', 'admin1', '2021-09-06 05:03:32'),
 (11, 'TRA_21|454', 'admin1', '2021-09-06 05:08:04'),
 (12, 'TRA_21|790', '', '2021-09-20 08:55:33'),
-(13, 'TRA_21|457', '', '2021-10-07 04:15:17');
+(13, 'TRA_21|457', '', '2021-10-07 04:15:17'),
+(14, 'TRA_21|454', 'admin1', '2021-11-18 04:24:52'),
+(15, 'TRA_21|423', 'admin1', '2021-11-25 04:01:20');
 
 -- --------------------------------------------------------
 
@@ -142,7 +150,7 @@ INSERT INTO `order_update` (`id`, `order_no`, `ordered_by`, `order_date`) VALUES
 --
 
 CREATE TABLE `receipt_table` (
-  `id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `item` varchar(255) NOT NULL,
   `quantity` int(11) NOT NULL,
   `rate` int(11) NOT NULL,
@@ -150,16 +158,63 @@ CREATE TABLE `receipt_table` (
   `date_of_receive` datetime NOT NULL DEFAULT current_timestamp(),
   `supplier` varchar(255) NOT NULL,
   `order_no` varchar(122) NOT NULL,
-  `amount` int(11) DEFAULT NULL
+  `amount` int(11) DEFAULT NULL,
+  `comments` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `receipt_table`
 --
 
-INSERT INTO `receipt_table` (`id`, `item`, `quantity`, `rate`, `ordered_by`, `date_of_receive`, `supplier`, `order_no`, `amount`) VALUES
-(1, 'Cauliflower', 56, 60, 'admin1', '2021-11-09 09:02:25', 'Poney', 'TRA_21|45', 3360),
-(2, 'Sugar', 78, 50, 'admin1', '2021-11-09 09:02:25', 'Haba', 'TRA_21|45', 3900);
+INSERT INTO `receipt_table` (`id`, `item`, `quantity`, `rate`, `ordered_by`, `date_of_receive`, `supplier`, `order_no`, `amount`, `comments`) VALUES
+(17, 'Cauliflower', 56, 60, 'admin1', '2021-11-16 06:10:00', 'Poney', 'TRA_21|45', 30, 'hello'),
+(18, 'Sugar', 78, 50, 'admin1', '2021-11-16 06:10:00', 'Haba', 'TRA_21|45', 0, 'hello'),
+(19, 'Cauliflower', 56, 60, 'admin1', '2021-11-18 04:12:16', 'Poney', 'TRA_21|45', 30, 'hello'),
+(20, 'Sugar', 78, 50, 'admin1', '2021-11-18 04:12:16', 'Haba', 'TRA_21|45', 0, 'hello'),
+(21, 'Cauliflower', 50, 60, 'admin1', '2021-11-18 04:12:39', 'Poney', 'TRA_21|470', 30, 'sda'),
+(22, 'Sugar', 78, 50, 'admin1', '2021-11-18 04:12:39', 'Haba', 'TRA_21|470', 0, 'sda'),
+(23, 'Cauliflower', 56, 60, 'admin1', '2021-11-18 04:13:12', 'Poney', 'TRA_21|45', 30, ''),
+(24, 'Sugar', 78, 50, 'admin1', '2021-11-18 04:13:12', 'Haba', 'TRA_21|45', 0, ''),
+(25, 'Cauliflower', 10, 60, 'admin1', '2021-11-18 04:13:27', 'Poney', 'TRA_21|45', 6, ''),
+(26, 'Sugar', 78, 50, 'admin1', '2021-11-18 04:13:27', 'Haba', 'TRA_21|45', 0, ''),
+(27, 'Cauliflower', 56, 60, 'admin1', '2021-11-18 04:14:44', 'Poney', 'TRA_21|45', 30, ''),
+(28, 'Sugar', 78, 50, 'admin1', '2021-11-18 04:14:44', 'Haba', 'TRA_21|45', 0, ''),
+(29, 'Cauliflower', 23, 60, 'admin1', '2021-11-23 04:28:53', 'Poney', 'TRA_21|454', 12, 'ss'),
+(30, 'Oil', 123, 50, 'admin1', '2021-11-23 04:28:53', '', 'TRA_21|454', 0, 'ss'),
+(31, 'Cauliflower', 23, 60, 'admin1', '2021-11-23 04:28:58', 'Poney', 'TRA_21|454', 12, ''),
+(32, 'Oil', 123, 50, 'admin1', '2021-11-23 04:28:58', '', 'TRA_21|454', 0, ''),
+(33, 'Cauliflower', 23, 60, 'admin1', '2021-11-23 04:31:39', 'Poney', 'TRA_21|454', 12, 'sad'),
+(34, 'Oil', 123, 50, 'admin1', '2021-11-23 04:31:39', '', 'TRA_21|454', 0, 'sad'),
+(35, 'Cauliflower', 23, 60, 'admin1', '2021-11-23 04:32:12', 'Poney', 'TRA_21|454', 12, 'sad'),
+(36, 'Oil', 178, 50, 'admin1', '2021-11-23 04:32:12', '', 'TRA_21|454', 0, 'sad'),
+(37, 'Cauliflower', 23, 60, 'admin1', '2021-11-25 03:54:53', 'Poney', 'TRA_21|454', 12, 'kjkj'),
+(38, 'Oil', 123, 50, 'admin1', '2021-11-25 03:54:53', '', 'TRA_21|454', 0, 'kjkj'),
+(39, 'Cauliflower', 23, 60, 'admin1', '2021-11-25 04:00:43', 'Poney', 'TRA_21|454', 12, 'sad'),
+(40, 'Oil', 184, 50, 'admin1', '2021-11-25 04:00:43', '', 'TRA_21|454', 0, 'sad'),
+(41, 'Cauliflower', 189, 60, 'admin1', '2021-11-25 04:01:30', 'Poney', 'TRA_21|423', 6, 'sada'),
+(42, 'Cauliflower', 189, 60, 'admin1', '2021-11-25 04:04:49', 'Poney', 'TRA_21|423', 6, ''),
+(43, 'Cauliflower', 189, 60, 'admin1', '2021-11-25 04:13:27', 'Poney', 'TRA_21|423', 6, ''),
+(44, 'Cauliflower', 189, 60, 'admin1', '2021-11-25 04:14:56', 'Poney', 'TRA_21|423', 6, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `store`
+--
+
+CREATE TABLE `store` (
+  `id` int(11) NOT NULL,
+  `item_name` varchar(255) NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `store`
+--
+
+INSERT INTO `store` (`id`, `item_name`, `quantity`) VALUES
+(15, 'Cauliflower', 173),
+(16, 'Oil', 123);
 
 -- --------------------------------------------------------
 
@@ -236,6 +291,12 @@ ALTER TABLE `receipt_table`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `store`
+--
+ALTER TABLE `store`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `supplier_table`
 --
 ALTER TABLE `supplier_table`
@@ -255,25 +316,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `item_table`
 --
 ALTER TABLE `item_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `order_table`
 --
 ALTER TABLE `order_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `order_update`
 --
 ALTER TABLE `order_update`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `receipt_table`
 --
 ALTER TABLE `receipt_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT for table `store`
+--
+ALTER TABLE `store`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `supplier_table`
