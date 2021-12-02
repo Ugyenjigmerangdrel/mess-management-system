@@ -27,7 +27,7 @@ if ($_SESSION['user_role'] === 2){
     $user_role = 'Admin';
 }
 
-$item = display_order('order_update', 'order_date');
+$item = selectAll('store');
 ?>
 
 <!DOCTYPE html>
@@ -69,8 +69,8 @@ $item = display_order('order_update', 'order_date');
                     }
                 ?>
               <div class="card-header">
-                <h4 class="card-title">Receipt Table</h4>
-                <p class="category"> Reference Table for receipt lists.</p>
+                <h4 class="card-title">Store</h4>
+                
                 
               </div>
               <div class="card-body">
@@ -82,14 +82,12 @@ $item = display_order('order_update', 'order_date');
                           Sl.No
                         </th>
                         <th>
-                          Order Number
+                          Item Name
                         </th>
                         <th>
-                          Ordered By
+                          Quantity
                         </th>
-                        <th class="text-center">
-                          
-                        </th>
+                        
                         
                       </tr>
                     </thead>
@@ -97,22 +95,10 @@ $item = display_order('order_update', 'order_date');
                     <?php foreach ($item as $key => $iti): ?>
                       <tr>
                         <th scope="row"><?php echo $key + 1 ?></th>
-                        <td><?php echo $iti['order_no'];?></td>
+                        <td><?php echo $iti['item_name'];?></td>
                         
-                        <td><?php echo $iti['ordered_by'];?></td>
-                        <?php 
-                        $order_status = selectOne('receipt_history', ['order_no' => $iti['order_no']]);
-                        $status = $order_status['receipt_check'];
-                        ?>
-                        <td><?php if ($status == 1){
-                          echo 'Submitted';
-                          $button_stat = 'disabled';
-                        } else{
-                          echo 'Pending';
-                          $button_stat = '';
-                        } ?></td>
-
-                        <td><a href="receipt_detail.php?order_no=<?php echo $iti['order_no'] ?>" class="btn btn-info <?php echo $button_stat; ?> border border-light text-light explore-butt "><i class="fa fa-eye"></i></a></td>
+                        <td><?php echo $iti['quantity'];?></td>
+                        
                       </tr>
 
                     <?php endforeach ?>

@@ -59,10 +59,13 @@ if (isset($_POST['submit'])){
         
         //printD($store_sql);
         $store_query = mysqli_query($conn, $store_sql);
+
+        $rs_sql = "INSERT INTO receipt_history (order_no, receipt_check) VALUES ('$order_no', 1);";
+        $rs_query = mysqli_query($conn, $rs_sql);
         
     }
 
-    if($query_run && $store_query)
+    if($query_run && $store_query && $rs_query)
     {
         $_SESSION['status'] = "Receipt Inserted Successfully";
         header("Location: received_table.php");

@@ -19,7 +19,7 @@
             </a>
           </li>
           <li>
-            <a href="./tables.html">
+            <a href="store.php">
               <i class="tim-icons icon-bank"></i>
               <p>Store</p>
             </a>
