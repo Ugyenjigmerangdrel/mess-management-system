@@ -47,7 +47,7 @@ if (isset($_POST['submit'])){
         $store_item = selectOne('store', ['item_name' => $s_names]);
         //printD($s_quantity);
         if (empty($store_item)){
-            printD('true');
+            //printD('true');
             $store_sql = "INSERT INTO store (item_name, quantity) VALUES ('$s_names','$s_quantity');";
         } else{
            

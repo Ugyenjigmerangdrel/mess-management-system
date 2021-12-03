@@ -1,18 +1,19 @@
-<!--
-=========================================================
-* * Black Dashboard - v1.0.1
-=========================================================
+<?php 
+include('path.php');
 
-* Product Page: https://www.creative-tim.com/product/black-dashboard
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+include($ROOTPATH . '/app/controllers/supplier.php');
 
+$user_role = '';
+if ($_SESSION['user_role'] === 1){
+    $user_role = 'Superadmin';
+} 
 
-* Coded by Creative Tim
+if ($_SESSION['user_role'] === 2){
+    $user_role = 'Admin';
+}
 
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
+$item = selectAll('supplier_table');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,43 +47,7 @@
                 <div class="table-responsive">
                   <table class="table tablesorter " id="">
                     <thead class=" text-primary">
-                      <tr>
-                        <th>
-                          Supplier Name
-                        </th>
-                        <th>
-                          Address
-                        </th>
-                        <th>
-                          Contact
-                        </th>
-                        <th class="text-center">
-                          Item Supplying
-                        </th>
-                        <th class="text-center">
-                          Changes
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          Dakota Rice
-                        </td>
-                        <td>
-                          Niger
-                        </td>
-                        <td>
-                          Oud-Turnhout
-                        </td>
-                        <td class="text-center">
-                          $36,738
-                        </td>
-                        <td class="text-center">
-                          <a href="" class="p-3 text-danger tim-icons icon-simple-remove"></a>
-                          <a href="" class="p-3 text-white tim-icons icon-pencil"></a>
-                        </td>
-                      </tr>
+                      
                       
                     </tbody>
                   </table>

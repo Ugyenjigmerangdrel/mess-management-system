@@ -87,9 +87,14 @@ $item = display_order('order_update', 'order_date');
                         <th>
                           Ordered By
                         </th>
-                        <th class="text-center">
-                          
+                        <th>
+                          Approval Status
                         </th>
+                        <th>
+
+                        </th>
+                        
+                       
                         
                       </tr>
                     </thead>
@@ -99,7 +104,9 @@ $item = display_order('order_update', 'order_date');
                         <th scope="row"><?php echo $key + 1 ?></th>
                         <td><?php echo $iti['order_no'];?></td>
                         <td><?php echo $iti['ordered_by'];?></td>
-                        <td><a href="pdf.php?order_no=<?php echo $iti['order_no'] ?>" class="btn btn-info border border-light text-light explore-butt "><i class="fa fa-eye"></i></a></td>
+                        <td></td>
+                        <td><a href="pdf.php?order_no=<?php echo $iti['order_no'] ?>" class="btn btn-info text-light explore-butt ">PDF</a></td>
+                        <td><a href="" class="btn btn-secondary text-light explore-butt ">Submit For Approval</a></td>
                       </tr>
 
                     <?php endforeach ?>
