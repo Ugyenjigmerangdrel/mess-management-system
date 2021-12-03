@@ -55,7 +55,7 @@ if (isset($_POST['save_multiple_data'])){
         $query_run = mysqli_query($conn, $query); 
     }
     //Order View Update
-    $u_query= "INSERT INTO order_update (order_no, ordered_by) VALUES ('$order', '$by');";
+    $u_query= "INSERT INTO order_update (order_no, ordered_by, approv_status) VALUES ('$order', '$by', 0);";
        
         
     $u_run = mysqli_query($conn, $u_query); 
