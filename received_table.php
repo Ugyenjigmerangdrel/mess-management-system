@@ -112,7 +112,7 @@ $item = display_order('order_update', 'order_date');
                           $button_stat = '';
                         } ?></td>
 
-                        <td><a href="receipt_detail.php?order_no=<?php echo $iti['order_no'] ?>" class="btn btn-info <?php echo $button_stat; ?> border border-light text-light explore-butt "><i class="fa fa-eye"></i></a></td>
+                        <td><a href="receipt_detail.php?order_no=<?php echo $iti['order_no'] ?>" class="btn btn-info <?php echo $button_stat; ?> border border-light text-light explore-butt ">Submit Receipt</td>
                       </tr>
 
                     <?php endforeach ?>
